@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="template">
+	<name>IntiDesigns</name>
+	<version>1.0</version>
+	<creationDate>8/21/2015</creationDate>
+	<author>Luis Aburto</author>
+	<authorEmail>luis.aburto@utas.edu.au</authorEmail>
+	<description>TPL_INTIDESIGNS_XML_DESCRIPTION</description>
+	<files>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>favicon.ico</filename>
+		<filename>index.php</filename>
+		<filename>logic.php</filename>
+		<filename>head.php</filename>
+		<filename>page.php</filename>
+		<filename>scripts.php</filename>
+		<filename>Mobile_Detect.php</filename>
+		<filename>templateDetails.xml</filename>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>img</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+		<folder>less</folder>
+	</files>
+	<positions>
+		<position>banner</position>
+	</positions>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.tpl_INTIDESIGNS.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_INTIDESIGNS.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+
+				<field name="sitetitle"  type="text" default=""
+					label="JGLOBAL_TITLE"
+					description="JFIELD_ALT_PAGE_TITLE_LABEL"
+					filter="string" />
+
+				<field name="googleFont"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="TPL_INTIDESIGNS_FONT_LABEL"
+					description="TPL_INTIDESIGNS_FONT_DESC"
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field name="googleFontName" class="" type="text" default="Open+Sans"
+					label="TPL_INTIDESIGNS_FONT_NAME_LABEL"
+					description="TPL_INTIDESIGNS_FONT_NAME_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
