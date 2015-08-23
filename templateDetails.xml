@@ -13,9 +13,11 @@
 		<filename>index.php</filename>
 		<filename>logic.php</filename>
 		<filename>head.php</filename>
-		<filename>page.php</filename>
 		<filename>scripts.php</filename>
 		<filename>Mobile_Detect.php</filename>
+		<filename>README.md</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
 		<filename>templateDetails.xml</filename>
 		<folder>css</folder>
 		<folder>html</folder>
