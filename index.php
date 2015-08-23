@@ -16,7 +16,7 @@ $mobile = ($detect->isMobile() && !$detect->isTablet());
 <?php flush(); ?>
 	<body class="site" role="document">
 		<?php echo $compatWarning; ?>
-
-      <?php echo $scripts; ?>
+		
+		<?php echo $scripts; ?>
 	</body>
 </html>
