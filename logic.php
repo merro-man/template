@@ -1,21 +1,35 @@
 <?php defined( '_JEXEC' ) or die;
 
-// variables
+$detect = new Mobile_Detect;
+$mobile = ($detect->isMobile() && !$detect->isTablet());
+
+/* VARIABLES */
 $app = JFactory::getApplication();
 $doc = JFactory::getDocument();
-$menu = $app->getMenu();
-$active = $app->getMenu()->getActive();
-$params = $app->getParams();
-$pageclass = $params->get('pageclass_sfx');
-$templateparams	= $app->getTemplate(true)->params;
-
-$this->language  = $doc->language;
-$this->direction = $doc->direction;
-
-// Detecting Active Variables
-$layout   = $app->input->getCmd('layout', '');
-$itemid   = $app->input->getCmd('Itemid', '');
 $sitename = $app->get('sitename');
+$params = $app->getParams();
+$siteLang = $this->language;
+$siteLangDir = $this->direction;
+$pagetype = '';
+$bodyclass = '';
+
+// class variables
+$menu = $app->getMenu();
+$activeMenuItem = $menu->getActive();
+$defaultMenuItem = $menu->getDefault();
+if ($activeMenuItem == $defaultMenuItem) {
+   $pagetype = 'home';
+}
+else {
+   $pagetype = 'internal';
+}
+$pageclass = $params->get('pageclass_sfx');
+if ($pageclass != null) {
+   $bodyclass = $pagetype . ' ' . $pageclass;
+}
+else {
+   $bodyclass = $pagetype;
+}
 
 // Meta Tags
 $doc->setHtml5(true);
