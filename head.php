@@ -8,20 +8,25 @@ $html5TagEnd = '>';
 $htmlHead = '';
 
 $htmlHead .= '<head>' . $lnEnd;
-$htmlHead .= $tab . '<meta charset="' . $doc->getCharset() . '">' . $lnEnd;
+
+// Generate charset when using HTML5 (should happen first)
+if ($doc->isHtml5())
+{
+  $htmlHead .= $tab . '<meta charset="' . $doc->getCharset() . '"' . $html5TagEnd . $lnEnd;
+}
 
 // Generate META tags (needs to happen as early as possible in the head)
 foreach ($doc->_metaTags as $type => $tag)
 {
   foreach ($tag as $name => $content)
   {
-    if ($type == 'http-equiv' && !($doc->isHtml5() && $name == 'content-type') && $content != "text/html; charset=utf-8")
+    if ($type == 'http-equiv' && !($doc->isHtml5() && $name == 'content-type'))
     {
-      $htmlHead .= $tab . '<meta http-equiv="' . $name . '" content="' . htmlspecialchars($content) . '">' . $lnEnd;
+      $htmlHead .= $tab . '<meta http-equiv="' . $name . '" content="' . htmlspecialchars($content) . '"' . $html5TagEnd . $lnEnd;
     }
     elseif ($type == 'standard' && !empty($content))
     {
-      $htmlHead .= $tab . '<meta name="' . $name . '" content="' . htmlspecialchars($content) . '">' . $lnEnd;
+      $htmlHead .= $tab . '<meta name="' . $name . '" content="' . htmlspecialchars($content) . '"' . $html5TagEnd . $lnEnd;
     }
   }
 }
@@ -40,14 +45,14 @@ $documentDescription = $doc->getDescription();
 
 if ($documentDescription)
 {
-  $htmlHead .= $tab . '<meta name="description" content="' . htmlspecialchars($documentDescription) . '">' . $lnEnd;
+  $htmlHead .= $tab . '<meta name="description" content="' . htmlspecialchars($documentDescription) . '"' . $html5TagEnd . $lnEnd;
 }
 
 $htmlHead .= $tab . '<title>' . htmlspecialchars($doc->getTitle(), ENT_COMPAT, 'UTF-8') . '</title>' . $lnEnd;
 
 $icon = $template . '/favicon.ico';
 if (file_exists( $icon )) {
-  $htmlHead .= $tab . '<link rel="icon" href="' . $icon . '">' . $lnEnd;
+  $htmlHead .= $tab . '<link rel="icon" href="' . $icon . '"' . $html5TagEnd . $lnEnd;
 }
 
 // Generate link declarations
@@ -60,13 +65,13 @@ foreach ($doc->_links as $link => $linkAtrr)
     $htmlHead .= ' ' . $temp;
   }
 
-  $htmlHead .= '>' . $lnEnd;
+  $htmlHead .= $html5TagEnd . $lnEnd;
 }
 
 // Generate stylesheet declarations
 foreach ($doc->_style as $type => $content)
 {
-  $htmlHead .= $tab . '<style type="' . $type . '">' . $lnEnd;
+  $htmlHead .= $tab . '<style type="' . $type . '"' . $html5TagEnd . $lnEnd;
 
   // This is for full XHTML support.
   if ($doc->_mime != 'text/html')
@@ -95,7 +100,7 @@ foreach ($doc->_styleSheets as $strSrc => $strAttr)
     $htmlHead .= ' media="' . $strAttr['media'] . '"';
   }
 
-  $htmlHead .= '>' . $lnEnd;
+  $htmlHead .= $html5TagEnd . $lnEnd;
 }
 
 // Output the custom tags - array_unique makes sure that we don't output the same tags twice

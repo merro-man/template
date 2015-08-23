@@ -18,6 +18,7 @@ $itemid   = $app->input->getCmd('Itemid', '');
 $sitename = $app->get('sitename');
 
 // Meta Tags
+$doc->setHtml5(true);
 $doc->setMetaData('x-ua-compatible', 'ie=edge');
 $doc->setMetaData('viewport', 'width=device-width, initial-scale=1');
 $doc->setMetaData('cleartype', 'on');
