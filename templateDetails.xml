@@ -4,7 +4,7 @@
 	<version>1.0</version>
 	<creationDate>8/21/2015</creationDate>
 	<author>Luis Aburto</author>
-	<authorEmail>luis.aburto@utas.edu.au</authorEmail>
+	<authorEmail>contact@intidesigns.com.au</authorEmail>
 	<description>TPL_INTIDESIGNS_XML_DESCRIPTION</description>
 	<files>
 		<filename>component.php</filename>
@@ -37,7 +37,7 @@
 		<fields name="params">
 			<fieldset name="advanced">
 
-				<field name="sitetitle"  type="text" default=""
+				<field name="sitetitle" type="text" default=""
 					label="JGLOBAL_TITLE"
 					description="JFIELD_ALT_PAGE_TITLE_LABEL"
 					filter="string" />
