@@ -1,4 +1,4 @@
-# Joomla Template
+# Joomla 3 Template
 ## Purpose
 *Work in progress.* 
 
