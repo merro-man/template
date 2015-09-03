@@ -6,6 +6,7 @@ require_once 'Mobile_Detect.php';
 
 include_once $template.'/logic.php';
 include_once $template.'/head.php';
+include_once $template.'/scripts.php';
 ?>
 <!doctype html>
 <html lang="<?php echo $siteLang; ?>" class="no-js">
