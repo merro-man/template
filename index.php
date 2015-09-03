@@ -9,8 +9,10 @@ include_once $template.'/head.php';
 ?>
 <!doctype html>
 <html lang="<?php echo $siteLang; ?>" class="no-js">
-<?php echo $htmlHead; ?>
-<?php flush(); ?>
+<?php 
+echo $htmlHead;
+flush(); 
+?>
 	<body class="<?php echo $bodyclass; ?>" role="document">
 
 		<!--[if lt IE 9]>
