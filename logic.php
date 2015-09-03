@@ -40,4 +40,16 @@ $doc->setMetaData('cleartype', 'on');
 // CSS
 $doc->addStyleSheet($template.'/css/main.css');
 
+// old IE
+jimport('joomla.environment.browser');
+$browser = JBrowser::getInstance();
+$browserType = $browser->getBrowser();
+$browserVersion = $browser->getMajor();
+$oldie = $detect->version('IE', self::VERSION_TYPE_FLOAT) <= 9.0 && !$detect->isMobile();
+
+if(($browserType == 'msie') && ($browserVersion < 9)) {
+   $doc->addStyleSheet($template.'/css/ie.css');
+   $doc->addScript('https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js');
+   $doc->addScript('https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js');
+}
 ?>
