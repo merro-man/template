@@ -45,7 +45,7 @@ jimport('joomla.environment.browser');
 $browser = JBrowser::getInstance();
 $browserType = $browser->getBrowser();
 $browserVersion = $browser->getMajor();
-$oldie = $detect->version('IE', self::VERSION_TYPE_FLOAT) <= 9.0 && !$detect->isMobile();
+$oldie = ($detect->version('IE', self::VERSION_TYPE_FLOAT) <= 9.0 && !$detect->isMobile());
 
 if(($browserType == 'msie') && ($browserVersion < 9)) {
    $doc->addStyleSheet($template.'/css/ie.css');
